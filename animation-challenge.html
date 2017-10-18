@@ -1,11 +1,117 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
-    <title> UI code challenge 3</title>
-    <!--<script src=""></script>-->
-  </head>
-  <body>
-  UI code challenge 3
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - UI Challenge #3 - Animations</title>
+
+  <style>
+    #show_box {
+      display: none;
+    }
+
+    #show_box:checked~.box {
+      opacity: 1;
+      animation: show-message 800ms forwards;
+      -webkit-animation: show-message 800ms forwards;
+    }
+
+    cite {
+      font-weight: bold;
+    }
+
+    label {
+      background: lightgray;
+      padding: 5px 8px;
+    }
+
+    .box {
+      /*   display: none; */
+      opacity: 0;
+      border: 1px solid #999;
+      border-radius: 3px;
+      margin: auto;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      padding: 20px;
+      overflow: hidden;
+      animation: hide-message 800ms forwards;
+      -webkit-animation: hide-message 800ms forwards;
+      box-shadow: 1px 5px 15px 0 rgba(0, 0, 0, .1);
+    }
+
+    @-webkit-keyframes show-message {
+      from {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      to {
+        opacity: 1;
+        width: 200px;
+        height: 110px;
+      }
+    }
+
+    @-webkit-keyframes hide-message {
+      from {
+        opacity: 1;
+        width: 200px;
+        height: 110px;
+        top: 0;
+      }
+      to {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        top: -100vw;
+      }
+    }
+
+
+
+    @keyframes show-message {
+      from {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      to {
+        opacity: 1;
+        width: 200px;
+        height: 110px;
+      }
+    }
+
+    @keyframes hide-message {
+      from {
+        opacity: 1;
+        width: 200px;
+        height: 110px;
+        top: 0;
+      }
+      to {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        top: -100vw;
+      }
+    }
+  </style>
+
+</head>
+
+<body translate="no">
+
+  <input type="checkbox" id="show_box" />
+  <label for="show_box">Show Message</label>
+  <blockquote class="box">
+    <p>Failure is not the opposite of success; it's part of success.</p>
+    <cite>~ Arianna Huffington</cite>
+  </blockquote>
+
+</body>
+
 </html>
